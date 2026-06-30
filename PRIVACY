@@ -1,0 +1,45 @@
+Privacy Policy for Adv.Attachments
+
+Last Updated: April 11, 2026
+
+
+DATA COLLECTION
+
+Adv.Attachments does not collect, transmit, or store any telemetry, analytics,
+or personal data.
+
+All processing occurs locally within your YouTrack instance and your configured
+S3 storage.
+
+
+EXTERNAL SERVICES
+
+The app contacts only:
+
+1. Your configured S3 endpoint — for file storage operations (upload, download,
+   list, delete). Only the endpoint you explicitly configure in Admin Settings
+   is used.
+
+2. Public CDN (optional) — for preview libraries (docx-preview, SheetJS/xlsx,
+   WebODF) only when using the built-in preview engine. To avoid any CDN
+   requests, set Preview Engine to "native" in Admin Settings (default).
+
+No other external services are contacted.
+
+
+DATA PROCESSING
+
+  - The app reads issue attachment metadata via YouTrack's internal API.
+  - S3 file operations use presigned URLs generated server-side; credentials
+    never leave the backend.
+  - Generated presigned URLs are short-lived (configurable TTL) and scoped to
+    specific operations.
+  - No file content, user data, or credentials are logged or transmitted to
+    third parties.
+  - S3 credentials are stored in YouTrack App Settings and never returned by
+    the API.
+
+
+CONTACT
+
+For privacy-related questions, contact: apps@mag1.cc

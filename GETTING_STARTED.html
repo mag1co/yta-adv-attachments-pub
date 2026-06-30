@@ -1,0 +1,37 @@
+<h3>1. Install the app</h3>
+<p>Install from <a href="https://plugins.jetbrains.com/plugin/28787">YouTrack Marketplace</a> or upload manually to your YouTrack Server instance.</p>
+
+<h3>2. Configure S3 storage</h3>
+<p>All S3 connection parameters are stored in a single <strong>S3 Connection String</strong>. To generate it:</p>
+<ol>
+  <li>Open <strong>Administration → Applications → Adv.Attachments → Settings</strong></li>
+  <li>Scroll to the <strong>"Generate S3 Connection String"</strong> section</li>
+  <li>Fill in your S3 connection details:
+    <ul>
+      <li><strong>Endpoint</strong> — e.g., <code>https://s3.eu-north-1.amazonaws.com</code> or <code>http://localhost:9000</code></li>
+      <li><strong>Region</strong> — e.g., <code>eu-north-1</code> (use <code>us-east-1</code> for MinIO)</li>
+      <li><strong>Bucket</strong> — your S3 bucket name</li>
+      <li><strong>Access Key ID</strong> and <strong>Secret Access Key</strong></li>
+      <li><strong>Force Path Style</strong> — enable for MinIO (<strong>required</strong>)</li>
+      <li><strong>S3 Provider</strong> — <code>aws_default</code> for AWS, <code>minio_default</code> for MinIO</li>
+    </ul>
+  </li>
+  <li>Click <strong>"Generate"</strong> — the secured string is created</li>
+  <li>Paste it into the <strong>"S3 Connection String"</strong> field and click <strong>"Save"</strong></li>
+</ol>
+
+<h3>3. Test configuration</h3>
+<p>Click <strong>"Run S3 Healthcheck"</strong> button in the Admin panel to verify all operations (list, upload, download, delete) work correctly.</p>
+
+<h3>4. Start using</h3>
+<p>Navigate to any issue — the <strong>Adv.Attachments</strong> widget appears in the issue footer. You can:</p>
+<ul>
+  <li><strong>Upload files</strong> — drag &amp; drop or click "Attach" button</li>
+  <li><strong>Browse files</strong> — switch between Grid and List views</li>
+  <li><strong>Preview files</strong> — double-click to preview images, PDF, Office (XLSX, DOCX, ODT), JSON, Markdown, ZIP and text files</li>
+  <li><strong>Download / Delete</strong> — hover over a file for action buttons</li>
+</ul>
+<p><i><b>Note:</b> Both native YouTrack attachments and S3 files are displayed together in a unified view. S3 storage is optional — native attachments work without any configuration.</i></p>
+
+<h3>5. CORS setup (important for S3)</h3>
+<p>If using S3 storage, configure CORS on your S3/MinIO bucket to allow browser access. See <a href="https://github.com/mag1co/yta-adv-attachments-pub">setup documentation</a> for details.</p>
